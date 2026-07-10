@@ -9,27 +9,25 @@
 <body>
     <div class="bg-glow"></div>
 
-    <!-- Парящая закругленная шапка сайта -->
+    <!-- Компактная закругленная парящая шапка -->
     <header class="navbar">
         <div class="logo">⚡ PulseVisuals</div>
         <nav class="nav-links">
-            <a href="#">Главная</a>
-            <!-- Специальный ID для плавной прокрутки -->
-            <a href="#features-section" id="nav-features-link">Функции</a>
-            <a href="#">Тарифы</a>
-            <a href="#">Видеобзоры</a>
-            <!-- ID для открытия маленького окна -->
-            <a href="#" id="nav-support-btn" style="color: #a855f7; font-weight: 600;">Поддержка</a>
+            <a href="#" class="nav-link-main">Главная</a>
+            <a href="#features-section" class="nav-link-scroll">Функции</a>
+            <a href="#" class="nav-link-main">Тарифы</a>
+            <a href="#" class="nav-link-main">Видеобзоры</a>
+            <!-- Рабочая кнопка Поддержка -->
+            <button id="nav-support-btn" class="nav-btn-support">Поддержка</button>
         </nav>
         <div class="user-profile">Mika42</div>
     </header>
 
-    <!-- Главный блок -->
     <main class="hero">
-        <h1 class="main-title">Лучший мод для<br>комфортной игры in Minecraft</h1>
+        <h1 class="main-title">Лучший мод для<br>комфортной игры в Minecraft</h1>
         <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность. Плавный геймплей, продуманный интерфейс и стабильная работа дают вам реальное превосходство в игре.</p>
 
-        <!-- Меню функций (Тумблеры) -->
+        <!-- Меню функций -->
         <div class="cheat-menu">
             <div class="menu-top-bar">
                 <div class="menu-tabs">
@@ -44,102 +42,84 @@
             </div>
 
             <div class="features-grid">
-                <div class="feature-item">
+                <div class="feature-item" data-name="aspect ratio">
                     <span>Aspect Ratio</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="china hat">
                     <span>China Hat</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item" data-name="crosshair">
                     <span>Crosshair</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="custom hand">
                     <span>Custom Hand</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="full bright">
                     <span>Full Bright</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item" data-name="hit color">
                     <span>Hit Color</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item" data-name="hitbox customizer">
                     <span>Hitbox Customizer</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item" data-name="jump circles">
                     <span>Jump Circles</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="particles">
                     <span>Particles</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="render tweaks">
                     <span>Render Tweaks</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
             </div>
 
             <div class="menu-expand-btn">
-                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://w3.org">
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
                     <path d="M1 1L8 8L15 1" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
         </div>
 
-        <!-- Блок преимуществ с твоими картинками -->
+        <!-- Преимущества мода -->
         <section id="features-section" class="advantages-section">
             <h2 class="section-title">Преимущества нашего мода</h2>
             <p class="advantages-subtitle">Наш мод открывает доступ к мощному набору функций, которые выводят комфорт и стиль игры на новый уровень.</p>
 
             <div class="advantages-grid">
                 <div class="advantage-card">
-                    <div class="card-text">
-                        <h3>Дизайн</h3>
-                        <p>Наслаждайтесь игрой с элегантным minimal-интерфейсом.</p>
-                    </div>
-                    <div class="card-image-box"><img src="card1.png" alt="Ракеты" class="mc-item-art img-rocket"></div>
+                    <div class="card-text"><h3>Дизайн</h3><p>Наслаждайтесь игрой с элегантным minimal-интерфейсом.</p></div>
+                    <div class="card-image-box"><img src="card1.png" alt="" class="mc-item-art img-rocket"></div>
                 </div>
                 <div class="advantage-card">
-                    <div class="card-text">
-                        <h3>Производительность</h3>
-                        <p>Оптимизированный код позволяет достичь высокого FPS.</p>
-                    </div>
-                    <div class="card-image-box"><img src="kirka.png" alt="Кирка" class="mc-item-art img-pickaxe"></div>
+                    <div class="card-text"><h3>Производительность</h3><p>Оптимизированный код позволяет достичь высокого FPS.</p></div>
+                    <div class="card-image-box"><img src="kirka.png" alt="" class="mc-item-art img-pickaxe"></div>
                 </div>
                 <div class="advantage-card">
-                    <div class="card-text">
-                        <h3>PvP преимущества</h3>
-                        <p>Получите преимущество в бою с помощью специальных настроек.</p>
-                    </div>
-                    <div class="card-image-box"><img src="stive.png" alt="Стив" class="mc-item-art img-steve"></div>
+                    <div class="card-text"><h3>PvP преимущества</h3><p>Получите преимущество в бою с помощью специальных настроек.</p></div>
+                    <div class="card-image-box"><img src="stive.png" alt="" class="mc-item-art img-steve"></div>
                 </div>
                 <div class="advantage-card">
-                    <div class="card-text">
-                        <h3>Гибкие настройки</h3>
-                        <p>Настройте мод под себя с помощью множества параметров.</p>
-                    </div>
-                    <div class="card-image-box"><img src="stiw.png" alt="Алекс" class="mc-item-art img-stiw"></div>
+                    <div class="card-text"><h3>Гибкие настройки</h3><p>Настройте мод под себя с помощью множества параметров.</p></div>
+                    <div class="card-image-box"><img src="stiw.png" alt="" class="mc-item-art img-stiw"></div>
                 </div>
                 <div class="advantage-card">
-                    <div class="card-text">
-                        <h3>Анти-чит</h3>
-                        <p>Наш мод полностью совместим с популярными анти-читами.</p>
-                    </div>
-                    <div class="card-image-box"><img src="delfin.png" alt="Дельфин" class="mc-item-art img-delfin"></div>
+                    <div class="card-text"><h3>Анти-чит</h3><p>Наш мод полностью совместим с популярными анти-читами.</p></div>
+                    <div class="card-image-box"><img src="delfin.png" alt="" class="mc-item-art img-delfin"></div>
                 </div>
                 <div class="advantage-card">
-                    <div class="card-text">
-                        <h3>Регулярные обновления</h3>
-                        <p>Мы постоянно улучшаем и обновляем наш мод.</p>
-                    </div>
-                    <div class="card-image-box"><img src="card6.png" alt="Котел" class="mc-item-art img-boiler"></div>
+                    <div class="card-text"><h3>Регулярные обновления</h3><p>Мы постоянно улучшаем и обновляем наш мод.</p></div>
+                    <div class="card-image-box"><img src="card6.png" alt="" class="mc-item-art img-boiler"></div>
                 </div>
             </div>
         </section>
@@ -170,27 +150,40 @@
                     <h2>Что-то непонятно?<br>Обратитесь к нам!</h2>
                     <p>Если у вас появились вопросы или нужна помощь — мы всегда на связи! Загляните в раздел помощи или напишите нам.</p>
                     <div class="support-buttons">
-                        <button class="btn-help" id="footer-help-btn">Помощь</button>
-                        <button class="btn-discord footer-ds-btn" data-username="Lama4ka44">Discord</button>
+                        <button class="btn-help open-support-trigger">Помощь</button>
+                        <button class="btn-discord" data-username="Lama4ka44">Discord</button>
                     </div>
                 </div>
                 <div class="support-image-container">
-                    <img src="stiw.png" alt="Minecraft Character" class="support-mc-char">
+                    <img src="stiw.png" alt="" class="support-mc-char">
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ОТДЕЛЬНОЕ МАЛЕНЬКОЕ ВСПОМОГАТЕЛЬНОЕ ОКНО (ОТКРЫВАЕТСЯ НА КНОПКУ ПОДДЕРЖКА) -->
+    <!-- ВСПЛЫВАЮЩЕЕ МАЛЕНЬКОЕ ОКНО (МОДАЛКА) -->
     <div class="modal-overlay" id="custom-menu-modal">
         <div class="modal-window">
             <button class="modal-close-btn" id="close-modal-btn">&times;</button>
             <div class="modal-body-layout">
                 <div class="modal-text-side">
-                    <h2>Тех. Поддержка</h2>
-                    <p>Нужна помощь с настройкой чита или появились вопросы? Наведи курсор на кнопку Discord ниже, чтобы увидеть наш тег для связи.</p>
+                    <h2>Раздел помощи</h2>
+                    <p>Вы открыли меню технической поддержки Pulse. Если у вас возникли трудности с установкой мода или его запуском — мы готовы подсказать решение.</p>
                     <div class="modal-badge-info">Статус: Онлайн</div>
                     
                     <div class="support-buttons" style="margin-top: 25px;">
-                        <button class="btn-help" style="padding: 12px 28px;">Помощь</button>
-                        <!-- Кнопка внутри окна с твоим ником -->
+                        <button class="btn-help">Помощь</button>
+                        <!-- Кнопка дискорда в самом окне, на ней тоже будет работать смена ника -->
+                        <button class="btn-discord" data-username="Lama4ka44">Discord</button>
+                    </div>
+                </div>
+                <div class="modal-image-side">
+                    <img src="stive.png" alt="" class="modal-mc-avatar">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
