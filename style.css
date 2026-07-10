@@ -1,291 +1,183 @@
-html {
-    scroll-behavior: smooth;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseVisuals - Лучший Мод</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, sans-serif;
-}
+    <!-- Шапка сайта -->
+    <header class="navbar">
+        <div class="logo">⚡ PulseVisuals</div>
+        <nav class="nav-links">
+            <a href="#">Главная</a>
+            <a href="#features-section">Функции</a>
+            <a href="#">Тарифы</a>
+            <a href="#">Видеобзоры</a>
+        </nav>
+        <div class="user-profile">Mika42</div>
+    </header>
 
-/* ГЛУБОКАЯ ТЕМНАЯ ТЕМА */
-body {
-    background-color: #040206; 
-    color: #ffffff;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-}
+    <!-- Главный блок -->
+    <main class="hero">
+        <h1 class="main-title">Лучший мод для<br>комфортной игры в Minecraft</h1>
+        <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность. Плавный геймплей, продуманный интерфейс и стабильная работа дают вам реальное превосходство в игре.</p>
 
-.bg-glow {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px;
-    height: 900px;
-    background: radial-gradient(circle, rgba(138, 43, 226, 0.22) 0%, rgba(255, 0, 127, 0.04) 60%, transparent 100%);
-    z-index: -1;
-    filter: blur(120px);
-}
+        <!-- Меню функций (Тумблеры) -->
+        <div class="cheat-menu">
+            <div class="menu-top-bar">
+                <div class="menu-tabs">
+                    <button class="tab-btn active" data-tab="visuals">Visuals</button>
+                    <button class="tab-btn" data-tab="hud">HUD</button>
+                    <button class="tab-btn" data-tab="utilities">Utilities</button>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="menu-search" placeholder="Search">
+                </div>
+            </div>
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    position: fixed;
-    top: 0; left: 0; width: 100%;
-    z-index: 100;
-    background: rgba(4, 2, 6, 0.75);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
+            <div class="features-grid" id="features-container">
+                <div class="feature-item" data-name="aspect ratio">
+                    <span>Aspect Ratio</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="china hat">
+                    <span>China Hat</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="crosshair">
+                    <span>Crosshair</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="custom hand">
+                    <span>Custom Hand</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="full bright">
+                    <span>Full Bright</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="hit color">
+                    <span>Hit Color</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="hitbox customizer">
+                    <span>Hitbox Customizer</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="jump circles">
+                    <span>Jump Circles</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="particles">
+                    <span>Particles</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="render tweaks">
+                    <span>Render Tweaks</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+            </div>
 
-.logo {
-    font-size: 1.3rem;
-    font-weight: 800;
-    background: linear-gradient(45deg, #ff007f, #8a2be2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+            <div class="menu-expand-btn">
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://w3.org">
+                    <path d="M1 1L8 8L15 1" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
 
-.nav-links a {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    margin: 0 18px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+        <!-- Блок преимуществ с твоими картинками -->
+        <section id="features-section" class="advantages-section">
+            <h2 class="section-title">Преимущества нашего мода</h2>
+            <p class="advantages-subtitle">Наш мод открывает доступ к мощному набору функций, которые выводят комфорт и стиль игры на новый уровень.</p>
 
-.nav-links a:hover { color: #ff007f; }
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="card-text">
+                        <h3>Дизайн</h3>
+                        <p>Наслаждайтесь игрой с элегантным минималистичным интерфейсом.</p>
+                    </div>
+                    <div class="card-image-box"><img src="card1.png" alt="Ракеты" class="mc-item-art img-rocket"></div>
+                </div>
+                <div class="advantage-card">
+                    <div class="card-text">
+                        <h3>Производительность</h3>
+                        <p>Оптимизированный код позволяет достичь высокого FPS даже на слабых компьютерах.</p>
+                    </div>
+                    <div class="card-image-box"><img src="kirka.png" alt="Кирка" class="mc-item-art img-pickaxe"></div>
+                </div>
+                <div class="advantage-card">
+                    <div class="card-text">
+                        <h3>PvP преимущества</h3>
+                        <p>Получите преимущество в бою с помощью специальных настроек и функций для PvP.</p>
+                    </div>
+                    <div class="card-image-box"><img src="stive.png" alt="Стив" class="mc-item-art img-steve"></div>
+                </div>
+                <div class="advantage-card">
+                    <div class="card-text">
+                        <h3>Гибкие настройки</h3>
+                        <p>Настройте мод под себя с помощью множества параметров и опций с удобным интерфейсом.</p>
+                    </div>
+                    <div class="card-image-box"><img src="stiw.png" alt="Алекс" class="mc-item-art img-stiw"></div>
+                </div>
+                <div class="advantage-card">
+                    <div class="card-text">
+                        <h3>Анти-чит</h3>
+                        <p>Наш мод полностью совместим с популярными анти-чит системами на серверах.</p>
+                    </div>
+                    <div class="card-image-box"><img src="delfin.png" alt="Дельфин" class="mc-item-art img-delfin"></div>
+                </div>
+                <div class="advantage-card">
+                    <div class="card-text">
+                        <h3>Регулярные обновления</h3>
+                        <p>Мы постоянно улучшаем и обновляем наш мод, добавляя новые функции.</p>
+                    </div>
+                    <div class="card-image-box"><img src="card6.png" alt="Котел" class="mc-item-art img-boiler"></div>
+                </div>
+            </div>
+        </section>
 
-.user-profile {
-    font-size: 0.9rem;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 8px 18px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
+        <!-- Слайдер сравнения качества -->
+        <div class="slider-section">
+            <h2 class="section-title">Играй по-своему</h2>
+            <p class="slider-subtitle">Выбирай: сочный HD-дизайн клиента или мрачная классика Minecraft. Решение за тобой — всегда.</p>
+            
+            <div class="comparison-container">
+                <div class="image-background">
+                    <div class="mc-photo-layer bad-quality"></div>
+                    <div class="quality-badge bad">Классика</div>
+                </div>
+                <div class="image-foreground">
+                    <div class="mc-photo-layer good-quality"></div>
+                    <div class="quality-badge good">Pulse HD</div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="slider-bar" id="compare-slider">
+                <div class="slider-button" id="slider-btn"></div>
+            </div>
+        </div>
 
-/* ГЛАВНЫЙ БЛОК КОНТЕНТА */
-.hero {
-    max-width: 1200px;
-    margin: 160px auto 100px auto;
-    padding: 0 20px;
-    text-align: center;
-}
+        <!-- БАННЕР ПОДДЕРЖКИ С ДИСКОРДОМ -->
+        <section class="support-section">
+            <div class="support-banner">
+                <div class="support-info">
+                    <h2>Что-то непонятно?<br>Обратитесь к нам!</h2>
+                    <p>Если у вас появились вопросы или нужна помощь — мы всегда на связи! Загляните в раздел помощи или напишите нам.</p>
+                    <div class="support-buttons">
+                        <button class="btn-help">Помощь</button>
+                        <button class="btn-discord" data-username="lama4ka44">Discord</button>
+                    </div>
+                </div>
+                <div class="support-image-container">
+                    <img src="stiw.png" alt="Minecraft Character" class="support-mc-char">
+                </div>
+            </div>
+        </section>
+    </main>
 
-.main-title {
-    font-size: 4rem; 
-    font-weight: 850;
-    line-height: 1.15;
-    margin-bottom: 25px;
-    letter-spacing: -1.5px;
-    color: #ffffff;
-}
-
-.subtitle {
-    color: rgba(255, 255, 255, 0.55);
-    max-width: 850px; 
-    margin: 0 auto 65px auto;
-    font-size: 1.15rem; 
-    line-height: 1.65;
-}
-
-/* --- УВЕЛИЧЕННАЯ ПАНЕЛЬ ЧИТА (ИЗ СКРИНШОТА) --- */
-.cheat-menu {
-    max-width: 950px; /* Увеличили общую ширину меню с 800px до 950px */
-    margin: 0 auto;
-    background: rgba(11, 8, 17, 0.9);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: 24px; /* Сделали углы чуть более округлыми */
-    padding: 35px; /* Увеличили внутренние отступы */
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
-}
-
-.menu-top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    padding-bottom: 20px;
-    margin-bottom: 28px;
-}
-
-.menu-tabs { display: flex; gap: 35px; } /* Увеличили расстояние между вкладками */
-
-.tab-btn {
-    background: transparent;
-    border: none;
-    color: rgba(255, 255, 255, 0.25);
-    font-size: 1.15rem; /* Увеличили размер шрифта вкладок */
-    font-weight: 600;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.tab-btn.active { color: #ffffff; }
-
-.search-box {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: 10px;
-    padding: 8px 16px;
-    width: 200px; /* Сделали поиск шире */
-}
-.search-icon { font-size: 1rem; margin-right: 10px; opacity: 0.3; }
-#menu-search { background: transparent; border: none; outline: none; color: #ffffff; font-size: 1rem; width: 100%; }
-#menu-search::placeholder { color: rgba(255, 255, 255, 0.2); }
-
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px 28px; /* Увеличили зазоры между строками */
-    text-align: left;
-}
-
-.feature-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    padding: 18px 24px; /* Увеличили внутреннюю высоту строк */
-    border-radius: 14px;
-    font-size: 1.15rem; /* Увеличили шрифт названий функций */
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.25);
-    transition: all 0.25s ease;
-}
-.feature-item.active-glow {
-    background: rgba(30, 23, 45, 0.4);
-    color: #ffffff;
-}
-
-/* УВЕЛИЧЕННЫЕ ПЕРЕКЛЮЧАТЕЛИ (ТУМБЛЕРЫ) */
-.switch { 
-    position: relative; 
-    display: inline-block; 
-    width: 48px; /* Увеличили ширину тумблера */
-    height: 24px; /* Увеличили высоту тумблера */
-}
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 255, 255, 0.08); transition: .25s; border-radius: 20px; }
-.slider:before { 
-    position: absolute; 
-    content: ""; 
-    height: 16px; /* Увеличили бегунок */
-    width: 16px; 
-    left: 4px; 
-    bottom: 4px; 
-    background-color: rgba(255, 255, 255, 0.4); 
-    transition: .25s; 
-    border-radius: 50%; 
-}
-input:checked + .slider { background: linear-gradient(45deg, #7c3aed, #a855f7); box-shadow: 0 0 12px rgba(168, 85, 247, 0.5); }
-input:checked + .slider:before { 
-    transform: translateX(24px); /* Сместили шаг анимации под новые размеры */
-    background-color: #ffffff; 
-}
-
-.menu-expand-btn { display: flex; justify-content: center; margin-top: 25px; cursor: pointer; padding-top: 10px; }
-.menu-expand-btn svg { transform: scale(1.2); transition: transform 0.3s; } /* Сделали стрелочку крупнее */
-.menu-expand-btn:hover svg { transform: scale(1.2) translateY(2px); }
-
-/* БЛОК ПРЕИМУЩЕСТВ */
-.advantages-section {
-    margin-top: 140px;
-    padding-top: 10px;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-
-.advantages-subtitle {
-    color: rgba(255, 255, 255, 0.45);
-    max-width: 800px;
-    margin: 0 auto 60px auto;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.advantages-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1150px;
-    margin: 0 auto;
-}
-
-.advantage-card {
-    background: rgba(13, 9, 20, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: 20px;
-    padding: 30px;
-    height: 330px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-text h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; transition: all 0.3s; }
-.card-text p { font-size: 0.88rem; color: rgba(255, 255, 255, 0.4); line-height: 1.5; transition: color 0.3s; }
-.card-image-box { width: 100%; display: flex; justify-content: center; align-items: flex-end; height: 150px; position: relative; }
-.mc-item-art { max-height: 130px; max-width: 100%; object-fit: contain; mix-blend-mode: screen; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom center; }
-
-.img-rocket { transform: scale(1.1); }
-.img-pickaxe { transform: scale(1.15) rotate(5deg); }
-.img-steve { transform: scale(1.1); }
-.img-stiw { transform: scale(1.1); }
-.img-delfin { transform: scale(1.2); }
-.img-boiler { transform: scale(1.15); }
-
-.advantage-card:hover {
-    transform: translateY(-8px);
-    background: rgba(19, 13, 30, 0.95);
-    border-color: rgba(255, 0, 127, 0.35);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 0, 127, 0.15), 0 0 15px rgba(138, 43, 226, 0.2);
-}
-.advantage-card:hover .card-text h3 { background: linear-gradient(45deg, #ff007f, #e0aaff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.advantage-card:hover .card-text p { color: rgba(255, 255, 255, 0.7); }
-.advantage-card:hover .mc-item-art { transform: scale(1.25) translateY(-8px); }
-
-/* СЛАЙДЕР СРАВНЕНИЯ КАЧЕСТВА */
-.slider-section {
-    margin-top: 140px; 
-    margin-bottom: 60px;
-}
-.slider-subtitle { color: rgba(255, 255, 255, 0.5); margin-bottom: 40px; }
-.comparison-container { position: relative; max-width: 900px; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto; overflow: hidden; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 35px 70px rgba(0, 0, 0, 0.9); }
-.mc-photo-layer { width: 900px; height: 100%; position: absolute; top: 0; left: 0; background-image: url('image.png'); background-size: cover; background-position: center; }
-.bad-quality { filter: blur(5px) saturate(0.3) contrast(0.8) brightness(0.5); }
-.good-quality { filter: saturate(1.4) contrast(1.15) brightness(1.05); }
-.image-background { width: 100%; height: 100%; position: relative; }
-.image-foreground { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; }
-.quality-badge { position: absolute; top: 18px; padding: 6px 14px; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); border-radius: 8px; font-size: 0.8rem; font-weight: 700; z-index: 4; }
-.quality-badge.bad { right: 18px; color: #ff4a4a; }
-.quality-badge.good { left: 18px; color: #4aff4a; }
-.slider-bar { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; opacity: 0; cursor: ew-resize; z-index: 10; }
-.slider-button { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background-color: #ffffff; transform: translateX(-50%); z-index: 5; }
-.slider-button::after { content: "↔"; color: #333; font-weight: bold; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; background-color: #ffffff; border-radius: 50%; }
-
-@media (max-width: 1000px) { .advantages-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 650px) { .advantages-grid { grid-template-columns: 1fr; } }
+    <script src="script.js"></script>
+</body>
+</html>
