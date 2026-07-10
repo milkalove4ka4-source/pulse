@@ -48,17 +48,49 @@ if (slider && foregroundImage && sliderButton) {
     });
 }
 
-// Подмена текста на кнопке Дискорда при наведении мыши
-const discordBtn = document.querySelector('.btn-discord');
-if (discordBtn) {
-    const originalText = discordBtn.textContent;
-    const username = discordBtn.getAttribute('data-username');
+// --- ЛОГИКА СВЕЖЕГО ВСПЛЫВАЮЩЕГО МЕНЮ (МОДАЛКА) ---
+const modal = document.getElementById('custom-menu-modal');
+const btnHelp = document.getElementById('open-modal-btn');
+const btnDiscord = document.getElementById('open-discord-btn');
+const btnClose = document.getElementById('close-modal-btn');
 
-    discordBtn.addEventListener('mouseenter', () => {
-        discordBtn.textContent = username;
+const modalTitle = document.getElementById('modal-title-text');
+const modalDesc = document.getElementById('modal-desc-text');
+const modalBadge = document.getElementById('modal-username-badge');
+
+// Открытие при клике на "Помощь"
+if (btnHelp && modal) {
+    btnHelp.addEventListener('click', () => {
+        modalTitle.textContent = "Раздел помощи";
+        modalDesc.textContent = "Вы открыли меню технической поддержки Pulse. Если у вас возникли трудности с установкой мода или его запуском — мы готовы подсказать решение.";
+        modalBadge.textContent = "Статус: Онлайн";
+        modal.classList.add('active');
     });
+}
 
-    discordBtn.addEventListener('mouseleave', () => {
-        discordBtn.textContent = originalText;
+// Открытие при клике на "Discord"
+if (btnDiscord && modal) {
+    btnDiscord.addEventListener('click', () => {
+        const username = btnDiscord.getAttribute('data-username');
+        modalTitle.textContent = "Наш Discord";
+        modalDesc.textContent = "Свяжитесь с нами напрямую! Скопируйте наш официальный юзернейм ниже и отправьте запрос в друзья в приложении Discord.";
+        modalBadge.textContent = `Логин: ${username}`;
+        modal.classList.add('active');
+    });
+}
+
+// Закрытие при клике на крестик
+if (btnClose && modal) {
+    btnClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+}
+
+// Закрытие при клике в любую пустую область экрана вокруг окошка
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
     });
 }
