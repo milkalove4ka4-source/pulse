@@ -26,30 +26,70 @@
         <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
         <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность.</p>
 
-        <!-- Меню функций -->
+        <!-- ОБНОВЛЕННАЯ ПАНЕЛЬ ИЗ СКРИНШОТА -->
         <div class="cheat-menu">
-            <div class="menu-tabs">
-                <button class="tab-btn active">Visuals</button>
-                <button class="tab-btn">HUD</button>
-                <button class="tab-btn">Utilities</button>
+            <!-- Верхняя панель: Вкладки + Поиск -->
+            <div class="menu-top-bar">
+                <div class="menu-tabs">
+                    <button class="tab-btn active" data-tab="visuals">Visuals</button>
+                    <button class="tab-btn" data-tab="hud">HUD</button>
+                    <button class="tab-btn" data-tab="utilities">Utilities</button>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="menu-search" placeholder="Search">
+                </div>
             </div>
-            <div class="features-grid">
-                <div class="feature-item">
+
+            <!-- Сетка со всеми функциями -->
+            <div class="features-grid" id="features-container">
+                <div class="feature-item" data-name="aspect ratio">
                     <span>Aspect Ratio</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="china hat">
                     <span>China Hat</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item" data-name="crosshair">
                     <span>Crosshair</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow">
+                <div class="feature-item active-glow" data-name="custom hand">
                     <span>Custom Hand</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
+                <div class="feature-item active-glow" data-name="full bright">
+                    <span>Full Bright</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="hit color">
+                    <span>Hit Color</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="hitbox customizer">
+                    <span>Hitbox Customizer</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item" data-name="jump circles">
+                    <span>Jump Circles</span>
+                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="particles">
+                    <span>Particles</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+                <div class="feature-item active-glow" data-name="render tweaks">
+                    <span>Render Tweaks</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+            </div>
+
+            <!-- Стрелочка развертывания по центру снизу -->
+            <div class="menu-expand-btn">
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://w3.org">
+                    <path d="M1 1L8 8L15 1" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
             </div>
         </div>
 
@@ -72,76 +112,53 @@
             </div>
         </div>
 
-        <!-- БЛОК ПРЕИМУЩЕСТВ С ТВОИМИ КАРТИНКАМИ -->
+        <!-- Блок преимуществ с твоими картинками -->
         <section id="features-section" class="advantages-section">
             <h2 class="section-title">Преимущества нашего мода</h2>
-            <p class="advantages-subtitle">Наш мод открывает доступ к мощному набору функций, которые выводят комфорт и стиль игры на новый уровень. Улучшайте производительность, доминируйте в PvP-сражениях и раскрывайте весь потенциал Minecraft без компромиссов.</p>
+            <p class="advantages-subtitle">Наш мод открывает доступ к мощному набору функций, которые выводят комфорт и стиль игры на новый уровень.</p>
 
             <div class="advantages-grid">
-                <!-- Карточка 1 (Дизайн) -->
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Дизайн</h3>
                         <p>Наслаждайтесь игрой с элегантным минималистичным интерфейсом.</p>
                     </div>
-                    <div class="card-image-box">
-                        <img src="card1.png" alt="Ракеты" class="mc-item-art img-rocket">
-                    </div>
+                    <div class="card-image-box"><img src="card1.png" alt="Ракеты" class="mc-item-art img-rocket"></div>
                 </div>
-
-                <!-- Карточка 2 (Производительность) -->
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Производительность</h3>
                         <p>Оптимизированный код позволяет достичь высокого FPS даже на слабых компьютерах.</p>
                     </div>
-                    <div class="card-image-box">
-                        <img src="kirka.png" alt="Кирка" class="mc-item-art img-pickaxe">
-                    </div>
+                    <div class="card-image-box"><img src="kirka.png" alt="Кирка" class="mc-item-art img-pickaxe"></div>
                 </div>
-
-                <!-- Карточка 3 (PvP преимущества) -->
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>PvP преимущества</h3>
                         <p>Получите преимущество в бою с помощью специальных настроек и функций для PvP.</p>
                     </div>
-                    <div class="card-image-box">
-                        <img src="stive.png" alt="Стив" class="mc-item-art img-steve">
-                    </div>
+                    <div class="card-image-box"><img src="stive.png" alt="Стив" class="mc-item-art img-steve"></div>
                 </div>
-
-                <!-- Карточка 4 (Гибкие настройки) -->
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Гибкие настройки</h3>
                         <p>Настройте мод под себя с помощью множества параметров и опций с удобным интерфейсом.</p>
                     </div>
-                    <div class="card-image-box">
-                        <img src="stiw.png" alt="Алекс" class="mc-item-art img-stiw">
-                    </div>
+                    <div class="card-image-box"><img src="stiw.png" alt="Алекс" class="mc-item-art img-stiw"></div>
                 </div>
-
-                <!-- Карточка 5 (Анти-чит) -->
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Анти-чит</h3>
                         <p>Наш мод полностью совместим с популярными анти-чит системами на серверах.</p>
                     </div>
-                    <div class="card-image-box">
-                        <img src="delfin.png" alt="Дельфин" class="mc-item-art img-delfin">
-                    </div>
+                    <div class="card-image-box"><img src="delfin.png" alt="Дельфин" class="mc-item-art img-delfin"></div>
                 </div>
-
-                <!-- Карточка 6 (Регулярные обновления) -->
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Регулярные обновления</h3>
                         <p>Мы постоянно улучшаем и обновляем наш мод, добавляя новые функции.</p>
                     </div>
-                    <div class="card-image-box">
-                        <img src="card6.png" alt="Котел" class="mc-item-art img-boiler">
-                    </div>
+                    <div class="card-image-box"><img src="card6.png" alt="Котел" class="mc-item-art img-boiler"></div>
                 </div>
             </div>
         </section>
