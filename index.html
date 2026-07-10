@@ -9,15 +9,16 @@
 <body>
     <div class="bg-glow"></div>
 
-    <!-- Обновленная закругленная и компактная шапка сайта -->
+    <!-- Парящая закругленная шапка сайта -->
     <header class="navbar">
         <div class="logo">⚡ PulseVisuals</div>
         <nav class="nav-links">
             <a href="#">Главная</a>
-            <a href="#features-section">Функции</a>
+            <!-- Специальный ID для плавной прокрутки -->
+            <a href="#features-section" id="nav-features-link">Функции</a>
             <a href="#">Тарифы</a>
             <a href="#">Видеобзоры</a>
-            <!-- Новая кнопка Поддержка в шапке -->
+            <!-- ID для открытия маленького окна -->
             <a href="#" id="nav-support-btn" style="color: #a855f7; font-weight: 600;">Поддержка</a>
         </nav>
         <div class="user-profile">Mika42</div>
@@ -25,16 +26,16 @@
 
     <!-- Главный блок -->
     <main class="hero">
-        <h1 class="main-title">Лучший мод для<br>комфортной игры в Minecraft</h1>
+        <h1 class="main-title">Лучший мод для<br>комфортной игры in Minecraft</h1>
         <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность. Плавный геймплей, продуманный интерфейс и стабильная работа дают вам реальное превосходство в игре.</p>
 
         <!-- Меню функций (Тумблеры) -->
         <div class="cheat-menu">
             <div class="menu-top-bar">
                 <div class="menu-tabs">
-                    <button class="tab-btn active" data-tab="visuals">Visuals</button>
-                    <button class="tab-btn" data-tab="hud">HUD</button>
-                    <button class="tab-btn" data-tab="utilities">Utilities</button>
+                    <button class="tab-btn active">Visuals</button>
+                    <button class="tab-btn">HUD</button>
+                    <button class="tab-btn">Utilities</button>
                 </div>
                 <div class="search-box">
                     <span class="search-icon">🔍</span>
@@ -42,44 +43,44 @@
                 </div>
             </div>
 
-            <div class="features-grid" id="features-container">
-                <div class="feature-item" data-name="aspect ratio">
+            <div class="features-grid">
+                <div class="feature-item">
                     <span>Aspect Ratio</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow" data-name="china hat">
+                <div class="feature-item active-glow">
                     <span>China Hat</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item" data-name="crosshair">
+                <div class="feature-item">
                     <span>Crosshair</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow" data-name="custom hand">
+                <div class="feature-item active-glow">
                     <span>Custom Hand</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow" data-name="full bright">
+                <div class="feature-item active-glow">
                     <span>Full Bright</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item" data-name="hit color">
+                <div class="feature-item">
                     <span>Hit Color</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item" data-name="hitbox customizer">
+                <div class="feature-item">
                     <span>Hitbox Customizer</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item" data-name="jump circles">
+                <div class="feature-item">
                     <span>Jump Circles</span>
                     <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow" data-name="particles">
+                <div class="feature-item active-glow">
                     <span>Particles</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
-                <div class="feature-item active-glow" data-name="render tweaks">
+                <div class="feature-item active-glow">
                     <span>Render Tweaks</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
@@ -162,15 +163,15 @@
             </div>
         </div>
 
-        <!-- Нижний баннер (остался для красоты) -->
+        <!-- Нижний баннер -->
         <section class="support-section">
             <div class="support-banner">
                 <div class="support-info">
                     <h2>Что-то непонятно?<br>Обратитесь к нам!</h2>
                     <p>Если у вас появились вопросы или нужна помощь — мы всегда на связи! Загляните в раздел помощи или напишите нам.</p>
                     <div class="support-buttons">
-                        <button class="btn-help" id="open-modal-btn">Помощь</button>
-                        <button class="btn-discord" id="open-discord-btn" data-username="Lama4ka44">Discord</button>
+                        <button class="btn-help" id="footer-help-btn">Помощь</button>
+                        <button class="btn-discord footer-ds-btn" data-username="Lama4ka44">Discord</button>
                     </div>
                 </div>
                 <div class="support-image-container">
@@ -180,11 +181,16 @@
         </section>
     </main>
 
-    <!-- ТВОЕ ОТДЕЛЬНОЕ ВСЕГДА СКРЫТОЕ МЕНЮ ПОДДЕРЖКИ -->
+    <!-- ОТДЕЛЬНОЕ МАЛЕНЬКОЕ ВСПОМОГАТЕЛЬНОЕ ОКНО (ОТКРЫВАЕТСЯ НА КНОПКУ ПОДДЕРЖКА) -->
     <div class="modal-overlay" id="custom-menu-modal">
         <div class="modal-window">
             <button class="modal-close-btn" id="close-modal-btn">&times;</button>
             <div class="modal-body-layout">
                 <div class="modal-text-side">
-                    <h2 id="modal-title-text">Раздел помощи</h2>
-                    <p id="modal-desc-text">Вы открыли меню технической поддержки Pulse. Если у вас возникли трудности с установкой мода или его запуском — мы готовы подсказать решение.</p>
+                    <h2>Тех. Поддержка</h2>
+                    <p>Нужна помощь с настройкой чита или появились вопросы? Наведи курсор на кнопку Discord ниже, чтобы увидеть наш тег для связи.</p>
+                    <div class="modal-badge-info">Статус: Онлайн</div>
+                    
+                    <div class="support-buttons" style="margin-top: 25px;">
+                        <button class="btn-help" style="padding: 12px 28px;">Помощь</button>
+                        <!-- Кнопка внутри окна с твоим ником -->
