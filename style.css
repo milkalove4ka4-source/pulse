@@ -1,3 +1,8 @@
+/* Включаем плавный скролл для кнопок меню */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +48,11 @@ body {
     text-decoration: none;
     margin: 0 15px;
     font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e0aaff;
 }
 
 .user-profile {
@@ -190,24 +200,20 @@ input:checked + .slider:before {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
-/* Слой картинки — подгружает image.png из твоего репозитория */
 .mc-photo-layer {
     width: 900px;
     height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url('image.png'); /* Имя картинки исправлено на твое */
+    top: 0; left: 0;
+    background-image: url('image.png');
     background-size: cover;
     background-position: center;
 }
 
-/* Правая сторона — Классика (делаем её размытой, темной и блеклой) */
 .bad-quality {
     filter: blur(5px) saturate(0.3) contrast(0.8) brightness(0.6);
 }
 
-/* Левая сторона — Pulse HD (делаем её ультра-сочной и контрастной) */
 .good-quality {
     filter: saturate(1.4) contrast(1.15) brightness(1.05);
 }
@@ -227,7 +233,6 @@ input:checked + .slider:before {
     z-index: 2;
 }
 
-/* Текстовые плашки "До / После" */
 .quality-badge {
     position: absolute;
     top: 15px;
@@ -238,7 +243,6 @@ input:checked + .slider:before {
     font-size: 0.8rem;
     font-weight: bold;
     z-index: 4;
-    pointer-events: none;
 }
 .quality-badge.bad { right: 15px; color: #ff4a4a; }
 .quality-badge.good { left: 15px; color: #4aff4a; }
@@ -260,7 +264,6 @@ input:checked + .slider:before {
     background-color: #ffffff;
     transform: translateX(-50%);
     z-index: 5;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .slider-button::after {
@@ -277,4 +280,101 @@ input:checked + .slider:before {
     background-color: #ffffff;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* --- СТИЛИ ДЛЯ БЛОКА ПРЕИМУЩЕСТВ (ФУНКЦИЙ) --- */
+.advantages-section {
+    margin-top: 120px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.advantages-section h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.advantages-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Сетка карточек преимуществ */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки, как на скриншоте */
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Сама карточка (Эффект стекла) */
+.advantage-card {
+    background: rgba(18, 14, 28, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 30px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    
+    /* Плавный переход для всех эффектов */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    transition: color 0.3s;
+}
+
+/* --- ЭФФЕКТ НАВЕДЕНИЯ (HOVER) КАК НА СКРИНШОТЕ --- */
+.advantage-card:hover {
+    transform: translateY(-5px); /* Легкое приподнимание карточки вверх */
+    background: rgba(24, 18, 38, 0.8);
+    border-color: rgba(138, 43, 226, 0.4); /* Фиолетовая неоновая рамка */
+    
+    /* Сочное фиолетово-розовое внутреннее и внешнее свечение */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 
+                0 0 20px rgba(138, 43, 226, 0.2);
+}
+
+/* При наведении текст заголовка становится ярче */
+.advantage-card:hover .card-content h3 {
+    color: #e0aaff;
+}
+
+.advantage-card:hover .card-content p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 900px) {
+    .advantages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
 }
