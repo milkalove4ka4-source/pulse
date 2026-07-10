@@ -23,12 +23,12 @@
 
     <!-- Главный блок -->
     <main class="hero">
-        <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
-        <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность.</p>
+        <!-- Увеличенный главный заголовок и текст под ним -->
+        <h1 class="main-title">Лучший мод для<br>комфортной игры в Minecraft</h1>
+        <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность. Плавный геймплей, продуманный интерфейс и стабильная работа дают вам реальное превосходство в игре.</p>
 
-        <!-- ОБНОВЛЕННАЯ ПАНЕЛЬ ИЗ СКРИНШОТА -->
+        <!-- Панель чита (Тумблеры) -->
         <div class="cheat-menu">
-            <!-- Верхняя панель: Вкладки + Поиск -->
             <div class="menu-top-bar">
                 <div class="menu-tabs">
                     <button class="tab-btn active" data-tab="visuals">Visuals</button>
@@ -41,7 +41,6 @@
                 </div>
             </div>
 
-            <!-- Сетка со всеми функциями -->
             <div class="features-grid" id="features-container">
                 <div class="feature-item" data-name="aspect ratio">
                     <span>Aspect Ratio</span>
@@ -85,7 +84,6 @@
                 </div>
             </div>
 
-            <!-- Стрелочка развертывания по центру снизу -->
             <div class="menu-expand-btn">
                 <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://w3.org">
                     <path d="M1 1L8 8L15 1" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
@@ -93,26 +91,7 @@
             </div>
         </div>
 
-        <!-- Слайдер сравнения качества -->
-        <div class="slider-section">
-            <h2>Играй по-своему</h2>
-            <p class="slider-subtitle">Выбирай: сочный HD-дизайн клиента или мрачная классика Minecraft. Решение за тобой — всегда.</p>
-            
-            <div class="comparison-container">
-                <div class="image-background">
-                    <div class="mc-photo-layer bad-quality"></div>
-                    <div class="quality-badge bad">Классика</div>
-                </div>
-                <div class="image-foreground">
-                    <div class="mc-photo-layer good-quality"></div>
-                    <div class="quality-badge good">Pulse HD</div>
-                </div>
-                <input type="range" min="0" max="100" value="50" class="slider-bar" id="compare-slider">
-                <div class="slider-button" id="slider-btn"></div>
-            </div>
-        </div>
-
-        <!-- Блок преимуществ с твоими картинками -->
+        <!-- ПОДНЯЛИ ВЫШЕ: Блок преимуществ с твоими картинками -->
         <section id="features-section" class="advantages-section">
             <h2 class="section-title">Преимущества нашего мода</h2>
             <p class="advantages-subtitle">Наш мод открывает доступ к мощному набору функций, которые выводят комфорт и стиль игры на новый уровень.</p>
@@ -162,6 +141,25 @@
                 </div>
             </div>
         </section>
+
+        <!-- ОПУСТИЛИ НИЖЕ: Слайдер сравнения качества -->
+        <div class="slider-section">
+            <h2 class="section-title">Играй по-своему</h2>
+            <p class="slider-subtitle">Выбирай: сочный HD-дизайн клиента или мрачная классика Minecraft. Решение за тобой — всегда.</p>
+            
+            <div class="comparison-container">
+                <div class="image-background">
+                    <div class="mc-photo-layer bad-quality"></div>
+                    <div class="quality-badge bad">Классика</div>
+                </div>
+                <div class="image-foreground">
+                    <div class="mc-photo-layer good-quality"></div>
+                    <div class="quality-badge good">Pulse HD</div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="slider-bar" id="compare-slider">
+                <div class="slider-button" id="slider-btn"></div>
+            </div>
+        </div>
     </main>
 
     <script src="script.js"></script>
