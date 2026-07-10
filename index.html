@@ -99,42 +99,42 @@
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Дизайн</h3>
-                        <p>Наслаждайтесь игрой с элегантным минималистичным интерфейсом.</p>
+                        <p>Наслаждайтесь игрой с элегантным minimal-интерфейсом.</p>
                     </div>
                     <div class="card-image-box"><img src="card1.png" alt="Ракеты" class="mc-item-art img-rocket"></div>
                 </div>
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Производительность</h3>
-                        <p>Оптимизированный код позволяет достичь высокого FPS даже на слабых компьютерах.</p>
+                        <p>Оптимизированный код позволяет достичь высокого FPS.</p>
                     </div>
                     <div class="card-image-box"><img src="kirka.png" alt="Кирка" class="mc-item-art img-pickaxe"></div>
                 </div>
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>PvP преимущества</h3>
-                        <p>Получите преимущество в бою с помощью специальных настроек и функций для PvP.</p>
+                        <p>Получите преимущество в бою с помощью специальных настроек.</p>
                     </div>
                     <div class="card-image-box"><img src="stive.png" alt="Стив" class="mc-item-art img-steve"></div>
                 </div>
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Гибкие настройки</h3>
-                        <p>Настройте мод под себя с помощью множества параметров и опций с удобным интерфейсом.</p>
+                        <p>Настройте мод под себя с помощью множества параметров.</p>
                     </div>
                     <div class="card-image-box"><img src="stiw.png" alt="Алекс" class="mc-item-art img-stiw"></div>
                 </div>
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Анти-чит</h3>
-                        <p>Наш мод полностью совместим с популярными анти-чит системами на серверах.</p>
+                        <p>Наш мод полностью совместим с популярными анти-читами.</p>
                     </div>
                     <div class="card-image-box"><img src="delfin.png" alt="Дельфин" class="mc-item-art img-delfin"></div>
                 </div>
                 <div class="advantage-card">
                     <div class="card-text">
                         <h3>Регулярные обновления</h3>
-                        <p>Мы постоянно улучшаем и обновляем наш мод, добавляя новые функции.</p>
+                        <p>Мы постоянно улучшаем и обновляем наш мод.</p>
                     </div>
                     <div class="card-image-box"><img src="card6.png" alt="Котел" class="mc-item-art img-boiler"></div>
                 </div>
@@ -160,24 +160,33 @@
             </div>
         </div>
 
-        <!-- БАННЕР ПОДДЕРЖКИ С ДИСКОРДОМ -->
+        <!-- КРАСИВЫЙ БАННЕР ПОДДЕРЖКИ (ОСТАЕТСЯ ВСЕГДА ВНИЗУ) -->
         <section class="support-section">
             <div class="support-banner">
                 <div class="support-info">
                     <h2>Что-то непонятно?<br>Обратитесь к нам!</h2>
                     <p>Если у вас появились вопросы или нужна помощь — мы всегда на связи! Загляните в раздел помощи или напишите нам.</p>
                     <div class="support-buttons">
-                        <button class="btn-help">Помощь</button>
-                        <button class="btn-discord" data-username="lama4ka44">Discord</button>
+                        <button class="btn-help" id="open-modal-btn">Помощь</button>
+                        <button class="btn-discord" id="open-discord-btn" data-username="lama4ka44">Discord</button>
                     </div>
                 </div>
                 <div class="support-image-container">
+                    <!-- Стив со спины из первого макета -->
                     <img src="stiw.png" alt="Minecraft Character" class="support-mc-char">
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- ОТДЕЛЬНОЕ ВСЕГДА СКРЫТОЕ МЕНЮ (ОТКРЫВАЕТСЯ ТОЛЬКО ПРИ КЛИКЕ) -->
+    <div class="modal-overlay" id="custom-menu-modal">
+        <div class="modal-window">
+            <button class="modal-close-btn" id="close-modal-btn">&times;</button>
+            <div class="modal-body-layout">
+                <div class="modal-text-side">
+                    <h2 id="modal-title-text">Раздел помощи</h2>
+                    <p id="modal-desc-text">Вы открыли меню поддержки. Если у вас есть вопросы по настройке, напишите нашему менеджеру.</p>
+                    <div class="modal-badge-info" id="modal-username-badge">Юзернейм: lama4ka44</div>
+                </div>
+                <div class="modal-image-side">
