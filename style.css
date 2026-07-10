@@ -1,3 +1,4 @@
+```css
 html {
     scroll-behavior: smooth;
 }
@@ -59,7 +60,6 @@ body {
     font-weight: 500;
     transition: color 0.3s;
 }
-
 .nav-links a:hover { color: #ff007f; }
 
 .user-profile {
@@ -186,7 +186,6 @@ input:checked + .slider:before { transform: translateX(24px); background-color: 
 .card-text h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; transition: all 0.3s; }
 .card-text p { font-size: 0.88rem; color: rgba(255, 255, 255, 0.4); line-height: 1.5; transition: color 0.3s; }
 .card-image-box { width: 100%; display: flex; justify-content: center; align-items: flex-end; height: 150px; position: relative; }
-
 .mc-item-art { max-height: 130px; max-width: 100%; object-fit: contain; mix-blend-mode: screen; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom center; }
 .img-rocket { transform: scale(1.1); }
 .img-pickaxe { transform: scale(1.15) rotate(5deg); }
@@ -194,7 +193,6 @@ input:checked + .slider:before { transform: translateX(24px); background-color: 
 .img-stiw { transform: scale(1.1); }
 .img-delfin { transform: scale(1.2); }
 .img-boiler { transform: scale(1.15); }
-
 .advantage-card:hover { transform: translateY(-8px); background: rgba(19, 13, 30, 0.95); border-color: rgba(255, 0, 127, 0.35); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 0, 127, 0.15), 0 0 15px rgba(138, 43, 226, 0.2); }
 .advantage-card:hover .card-text h3 { background: linear-gradient(45deg, #ff007f, #e0aaff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .advantage-card:hover .card-text p { color: rgba(255, 255, 255, 0.7); }
@@ -221,7 +219,6 @@ input:checked + .slider:before { transform: translateX(24px); background-color: 
     max-width: 950px;
     margin: 0 auto 100px auto;
 }
-
 .support-banner {
     background: linear-gradient(135deg, rgba(23, 17, 36, 0.7) 0%, rgba(13, 9, 21, 0.9) 100%);
     backdrop-filter: blur(20px);
@@ -237,32 +234,14 @@ input:checked + .slider:before { transform: translateX(24px); background-color: 
     position: relative;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
-
-.support-info {
-    max-width: 50%;
-    z-index: 3;
-}
-
-.support-info h2 {
-    font-size: 2.3rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 18px;
-    letter-spacing: -0.5px;
-}
-
-.support-info p {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
+.support-info { max-width: 50%; z-index: 3; }
+.support-info h2 { font-size: 2.3rem; font-weight: 800; line-height: 1.2; margin-bottom: 18px; letter-spacing: -0.5px; }
+.support-info p { color: rgba(255, 255, 255, 0.5); font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
 .support-buttons { display: flex; gap: 15px; }
 
 .btn-help {
     background: linear-gradient(45deg, #5b21b6, #7c3aed);
-    color: #ffffff;
+        color: #ffffff;
     border: none;
     border-radius: 12px;
     padding: 14px 32px;
@@ -273,9 +252,9 @@ input:checked + .slider:before { transform: translateX(24px); background-color: 
     transition: all 0.3s ease;
 }
 
-.btn-help:hover { 
-    transform: translateY(-2px); 
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5); 
+.btn-help:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
 }
 
 .btn-discord {
@@ -316,23 +295,133 @@ input:checked + .slider:before { transform: translateX(24px); background-color: 
     filter: drop-shadow(-10px 15px 25px rgba(0,0,0,0.7));
 }
 
+/* --- СТИЛИ ДЛЯ ОТДЕЛЬНОГО ОКОШКА МЕНЮ (МОДАЛКА) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 2, 6, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+/* Класс, который JS будет вешать при клике на Помощь или ДС */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window {
+    background: rgba(16, 12, 24, 0.95);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 30px rgba(168, 85, 247, 0.1);
+    border-radius: 24px;
+    width: 650px;
+    padding: 40px;
+    position: relative;
+    transform: scale(0.85);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.modal-overlay.active .modal-window {
+    transform: scale(1);
+}
+
+/* Кнопка закрытия (Крестик) */
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: #ff007f;
+}
+
+.modal-body-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-text-side {
+    max-width: 60%;
+    text-align: left;
+}
+
+.modal-text-side h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #a855f7, #ff007f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modal-text-side p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.modal-badge-info {
+    display: inline-block;
+    background: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #e9d5ff;
+}
+
+.modal-image-side {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-mc-avatar {
+    max-height: 200px;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 10px 20px rgba(168, 85, 247, 0.3));
+    animation: floatingChar 3s ease-in-out infinite alternate;
+}
+
+/* Легкое покачивание Алекса в воздухе */
+@keyframes floatingChar {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-8px);
+    }
+}
+
 @media (max-width: 850px) {
-    .support-banner { 
-        flex-direction: column; 
-        padding: 40px; 
-        text-align: center; 
+    .advantages-grid {
+        grid-template-columns: 1fr 1fr;
     }
-    .support-info { 
-        max-width: 100%; 
-        margin-bottom: 40px; 
-    }
-    .support-buttons { 
-        justify-content: center; 
-    }
-    .support-image-container { 
-        position: relative; 
-        width: 100%; 
-        right: 0; 
-        bottom: 0; 
+}
+
+@media (max-width: 650px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
     }
 }
