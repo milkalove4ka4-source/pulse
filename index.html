@@ -9,7 +9,7 @@
 <body>
     <div class="bg-glow"></div>
 
-    <!-- Шапка сайта -->
+    <!-- Обновленная закругленная и компактная шапка сайта -->
     <header class="navbar">
         <div class="logo">⚡ PulseVisuals</div>
         <nav class="nav-links">
@@ -17,6 +17,8 @@
             <a href="#features-section">Функции</a>
             <a href="#">Тарифы</a>
             <a href="#">Видеобзоры</a>
+            <!-- Новая кнопка Поддержка в шапке -->
+            <a href="#" id="nav-support-btn" style="color: #a855f7; font-weight: 600;">Поддержка</a>
         </nav>
         <div class="user-profile">Mika42</div>
     </header>
@@ -160,7 +162,7 @@
             </div>
         </div>
 
-        <!-- КРАСИВЫЙ БАННЕР ПОДДЕРЖКИ (ОСТАЕТСЯ ВСЕГДА ВНИЗУ) -->
+        <!-- Нижний баннер (остался для красоты) -->
         <section class="support-section">
             <div class="support-banner">
                 <div class="support-info">
@@ -168,25 +170,21 @@
                     <p>Если у вас появились вопросы или нужна помощь — мы всегда на связи! Загляните в раздел помощи или напишите нам.</p>
                     <div class="support-buttons">
                         <button class="btn-help" id="open-modal-btn">Помощь</button>
-                        <button class="btn-discord" id="open-discord-btn" data-username="lama4ka44">Discord</button>
+                        <button class="btn-discord" id="open-discord-btn" data-username="Lama4ka44">Discord</button>
                     </div>
                 </div>
                 <div class="support-image-container">
-                    <!-- Стив со спины из первого макета -->
                     <img src="stiw.png" alt="Minecraft Character" class="support-mc-char">
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ОТДЕЛЬНОЕ ВСЕГДА СКРЫТОЕ МЕНЮ (ОТКРЫВАЕТСЯ ТОЛЬКО ПРИ КЛИКЕ) -->
+    <!-- ТВОЕ ОТДЕЛЬНОЕ ВСЕГДА СКРЫТОЕ МЕНЮ ПОДДЕРЖКИ -->
     <div class="modal-overlay" id="custom-menu-modal">
         <div class="modal-window">
             <button class="modal-close-btn" id="close-modal-btn">&times;</button>
             <div class="modal-body-layout">
                 <div class="modal-text-side">
                     <h2 id="modal-title-text">Раздел помощи</h2>
-                    <p id="modal-desc-text">Вы открыли меню поддержки. Если у вас есть вопросы по настройке, напишите нашему менеджеру.</p>
-                    <div class="modal-badge-info" id="modal-username-badge">Юзернейм: lama4ka44</div>
-                </div>
-                <div class="modal-image-side">
+                    <p id="modal-desc-text">Вы открыли меню технической поддержки Pulse. Если у вас возникли трудности с установкой мода или его запуском — мы готовы подсказать решение.</p>
