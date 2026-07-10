@@ -231,7 +231,7 @@ input:checked + .slider:before {
 .slider-button { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background-color: #ffffff; transform: translateX(-50%); z-index: 5; }
 .slider-button::after { content: "↔"; color: #333; font-weight: bold; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; background-color: #ffffff; border-radius: 50%; }
 
-/* --- ФИНАЛЬНЫЙ СТИЛЬНЫЙ БЛОК ПРЕИМУЩЕСТВ (КАК НА СКРИНЕ) --- */
+/* --- СТИЛЬНЫЙ БЛОК ПРЕИМУЩЕСТВ С ТВОИМИ КАРТИНКАМИ --- */
 .advantages-section {
     margin-top: 140px;
     padding-top: 20px;
@@ -253,7 +253,6 @@ input:checked + .slider:before {
     line-height: 1.6;
 }
 
-/* Сетка карточек 3х2 */
 .advantages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -262,16 +261,15 @@ input:checked + .slider:before {
     margin: 0 auto;
 }
 
-/* Пиздатая премиум-карточка с картинкой */
 .advantage-card {
     background: rgba(15, 11, 23, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: 20px;
     padding: 30px;
-    height: 320px; /* Увеличили высоту под картинки */
+    height: 330px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Текст сверху, картинка снизу */
+    justify-content: space-between;
     align-items: flex-start;
     text-align: left;
     position: relative;
@@ -296,46 +294,44 @@ input:checked + .slider:before {
     transition: color 0.3s;
 }
 
-/* Контейнер для 3D картинок */
 .card-image-box {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 140px;
+    height: 150px;
     position: relative;
 }
 
-/* Настройки стилей для артов */
+/* Настройки стилей для твоих артов */
 .mc-item-art {
-    max-height: 120px;
+    max-height: 130px;
+    max-width: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    /* Убирает черный фон со скринов */
+    mix-blend-mode: screen; 
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: bottom center;
 }
 
-/* Тонкая подстройка разворотов под макет */
-.img-rocket { transform: rotate(-15px) scale(0.9); }
-.img-pickaxe { transform: rotate(10deg) scale(1.1); }
-.img-steve { max-height: 140px; transform: scale(1.1); }
-.img-steve2 { max-height: 130px; }
-.img-golem { max-height: 130px; }
-.img-chest { transform: scale(1.05); }
+/* Развороты под скриншоты */
+.img-rocket { transform: scale(1.1); }
+.img-pickaxe { transform: scale(1.15) rotate(5deg); }
+.img-steve { transform: scale(1.1); }
+.img-stiw { transform: scale(1.1); }
+.img-delfin { transform: scale(1.2); }
+.img-boiler { transform: scale(1.15); }
 
-/* --- ЖЕСТКИЙ ЭФФЕКТ НАВЕДЕНИЯ КАК НА КАРТИНКЕ --- */
+/* ЭФФЕКТ НАВЕДЕНИЯ */
 .advantage-card:hover {
     transform: translateY(-8px);
     background: rgba(21, 14, 33, 0.95);
-    border-color: rgba(255, 0, 127, 0.35); /* Розово-фиолетовая неоновая неоновая грань */
-    
-    /* Мощное глубокое неоновое свечение */
+    border-color: rgba(255, 0, 127, 0.35);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
                 0 0 30px rgba(255, 0, 127, 0.15),
                 0 0 15px rgba(138, 43, 226, 0.2);
 }
 
-/* При наведении текст заголовка горит неоновым градиентом */
 .advantage-card:hover .card-text h3 {
     background: linear-gradient(45deg, #ff007f, #e0aaff);
     -webkit-background-clip: text;
@@ -346,17 +342,9 @@ input:checked + .slider:before {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Анимация картинок предметов при наведении на карточку */
 .advantage-card:hover .mc-item-art {
-    transform: scale(1.2) translateY(-10px); /* Предмет вылетает навстречу */
-    filter: drop-shadow(0 15px 25px rgba(138, 43, 226, 0.4)); /* Свечение под предметом */
+    transform: scale(1.25) translateY(-8px);
 }
 
-/* Специфичный поворот для летящей ракеты при наведении */
-.advantage-card:hover .img-rocket {
-    transform: rotate(-25deg) scale(1.25) translateY(-12px);
-}
-
-/* Адаптивность для мобилок */
 @media (max-width: 1000px) { .advantages-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 650px) { .advantages-grid { grid-template-columns: 1fr; } }
