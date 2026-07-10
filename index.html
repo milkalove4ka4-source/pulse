@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PulseVisuals - Лучший Мод</title>
+    <!-- Важно: проверь, что имя файла тут строго совпадает с style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Фоновое свечение -->
     <div class="bg-glow"></div>
 
+    <!-- Шапка сайта -->
     <header class="navbar">
         <div class="logo">⚡ PulseVisuals</div>
         <nav class="nav-links">
@@ -20,9 +23,10 @@
         <div class="user-profile">Mika42</div>
     </header>
 
+    <!-- Главный блок -->
     <main class="hero">
         <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
-        <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность.</p>
+        <p class="subtitle">Pulse создан для тех, кто ценит стиль, удобство и максимальную производительность. Плавный геймплей, продуманный интерфейс и стабильная работа дают вам реальное превосходство в игре.</p>
 
         <!-- Главная панель управления -->
         <div class="cheat-menu">
@@ -31,46 +35,59 @@
                 <button class="tab-btn">HUD</button>
                 <button class="tab-btn">Utilities</button>
             </div>
+
             <div class="features-grid">
                 <div class="feature-item">
                     <span>Aspect Ratio</span>
-                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
                 </div>
                 <div class="feature-item active-glow">
                     <span>China Hat</span>
-                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
                 </div>
                 <div class="feature-item">
                     <span>Crosshair</span>
-                    <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
                 </div>
                 <div class="feature-item active-glow">
                     <span>Custom Hand</span>
-                    <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
         </div>
 
-        <!-- НОВЫЙ БЛОК: Слайдер сравнения качества -->
+        <!-- Слайдер сравнения качества -->
         <div class="slider-section">
             <h2>Играй по-своему</h2>
             <p class="slider-subtitle">Выбирай: сочный HD-дизайн клиента или мрачная классика Minecraft. Решение за тобой — всегда.</p>
             
             <div class="comparison-container">
-                <!-- Задний слой: Обычное/Хуевое качество -->
+                <!-- Задний слой (Обычное качество) -->
                 <div class="image-background">
-                    <img src="low-quality.jpg" alt="Обычное качество">
+                    <img src="https://unsplash.com" alt="Обычное качество">
                 </div>
                 
-                <!-- Передний слой: Пиздатое качество (будет обрезаться ползунком) -->
+                <!-- Передний слой (Пиздатое качество) -->
                 <div class="image-foreground">
-                    <img src="high-quality.jpg" alt="HD качество">
+                    <img src="https://unsplash.com" alt="HD качество">
                 </div>
                 
-                <!-- Сам интерактивный ползунок -->
+                <!-- Ползунок -->
                 <input type="range" min="0" max="100" value="50" class="slider-bar" id="compare-slider">
                 
-                <!-- Линия и кнопка по центру -->
+                <!-- Линия разделителя -->
                 <div class="slider-button" id="slider-btn"></div>
             </div>
         </div>
