@@ -48,8 +48,9 @@ if (slider && foregroundImage && sliderButton) {
     });
 }
 
-// --- ЛОГИКА СВЕЖЕГО ВСПЛЫВАЮЩЕГО МЕНЮ (МОДАЛКА) ---
+// --- ЛОГИКА ОКНА ПОДДЕРЖКИ И СВЯЗЬ С ШАПКОЙ ---
 const modal = document.getElementById('custom-menu-modal');
+const navSupportBtn = document.getElementById('nav-support-btn'); // Кнопка из шапки
 const btnHelp = document.getElementById('open-modal-btn');
 const btnDiscord = document.getElementById('open-discord-btn');
 const btnClose = document.getElementById('close-modal-btn');
@@ -58,18 +59,29 @@ const modalTitle = document.getElementById('modal-title-text');
 const modalDesc = document.getElementById('modal-desc-text');
 const modalBadge = document.getElementById('modal-username-badge');
 
-// Открытие при клике на "Помощь"
-if (btnHelp && modal) {
-    btnHelp.addEventListener('click', () => {
-        modalTitle.textContent = "Раздел помощи";
-        modalDesc.textContent = "Вы открыли меню технической поддержки Pulse. Если у вас возникли трудности с установкой мода или его запуском — мы готовы подсказать решение.";
-        modalBadge.textContent = "Статус: Онлайн";
-        modal.classList.add('active');
+// Функция для открытия окна поддержки
+function openSupportModal() {
+    modalTitle.textContent = "Раздел помощи";
+    modalDesc.textContent = "Вы открыли меню технической поддержки Pulse. Если у вас возникли трудности с установкой мода или его запуском — мы готовы подсказать решение.";
+    modalBadge.textContent = "Статус: Онлайн";
+    modal.classList.add('active');
+}
+
+// Клик по кнопке "Поддержка" в шапке открывает окно
+if (navSupportBtn) {
+    navSupportBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Чтобы страница не прыгала вверх
+        openSupportModal();
     });
 }
 
-// Открытие при клике на "Discord"
-if (btnDiscord && modal) {
+// Открытие при клике на "Помощь" снизу
+if (btnHelp) {
+    btnHelp.addEventListener('click', openSupportModal);
+}
+
+// Открытие при клике на "Discord" снизу
+if (btnDiscord) {
     btnDiscord.addEventListener('click', () => {
         const username = btnDiscord.getAttribute('data-username');
         modalTitle.textContent = "Наш Discord";
@@ -80,17 +92,27 @@ if (btnDiscord && modal) {
 }
 
 // Закрытие при клике на крестик
-if (btnClose && modal) {
-    btnClose.addEventListener('click', () => {
-        modal.classList.remove('active');
+if (btnClose) {
+    btnClose.addEventListener('click', () => modal.classList.remove('active'));
+}
+
+// Закрытие по клику на фон
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
     });
 }
 
-// Закрытие при клике в любую пустую область экрана вокруг окошка
-if (modal) {
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-        }
+// АНИМАЦИЯ СМЕНЫ ТЕКСТА НА ХОВЕРЕ ДЛЯ ВСЕХ КНОПОК ДИСКОРДА (В баннере и модалке)
+document.querySelectorAll('.btn-discord').forEach(btn => {
+    const originalText = btn.textContent;
+    const username = btn.getAttribute('data-username');
+
+    btn.addEventListener('mouseenter', () => {
+        btn.textContent = username;
     });
-}
+
+    btn.addEventListener('mouseleave', () => {
+        btn.textContent = originalText;
+    });
+});
