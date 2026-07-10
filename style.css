@@ -1,3 +1,4 @@
+/* Включаем плавный скролл до блоков */
 html {
     scroll-behavior: smooth;
 }
@@ -17,6 +18,7 @@ body {
     position: relative;
 }
 
+/* Фоновое неоновое свечение */
 .bg-glow {
     position: absolute;
     top: 15%;
@@ -29,12 +31,22 @@ body {
     filter: blur(100px);
 }
 
+/* ФИКСИРОВАННАЯ ШАПКА САЙТА (ВСЕГДА СВЕРХУ) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 8%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 20px 8%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Чтобы была поверх слайдера и карточек */
+    background: rgba(6, 4, 9, 0.7); /* Полупрозрачный фон */
+    backdrop-filter: blur(12px); /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .logo {
@@ -66,9 +78,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ГЛАВНЫЙ КОНТЕНТ (С ОТСТУПОМ ПОД ФИКСИРОВАННУЮ ШАПКУ) */
 .hero {
     max-width: 1200px;
-    margin: 80px auto;
+    margin: 140px auto 80px auto; /* Увеличен отступ сверху, чтобы шапка не перекрывала текст */
     padding: 0 20px;
     text-align: center;
 }
@@ -89,6 +102,7 @@ body {
     line-height: 1.6;
 }
 
+/* ПАНЕЛЬ ТУМБЛЕРОВ */
 .cheat-menu {
     max-width: 800px;
     margin: 0 auto;
@@ -178,7 +192,7 @@ input:checked + .slider:before {
     transform: translateX(22px);
 }
 
-/* СЛАЙДЕР СРАВНЕНИЯ */
+/* СЛАЙДЕР СРАВНЕНИЯ КАЧЕСТВА */
 .slider-section {
     margin-top: 100px;
 }
@@ -206,7 +220,7 @@ input:checked + .slider:before {
     height: 100%;
     position: absolute;
     top: 0; left: 0;
-    background-image: url('image.png');
+    background-image: url('image.png'); /* Путь к твоему фону */
     background-size: cover;
     background-position: center;
 }
@@ -231,7 +245,7 @@ input:checked + .slider:before {
 .slider-button { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background-color: #ffffff; transform: translateX(-50%); z-index: 5; }
 .slider-button::after { content: "↔"; color: #333; font-weight: bold; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; background-color: #ffffff; border-radius: 50%; }
 
-/* --- СТИЛЬНЫЙ БЛОК ПРЕИМУЩЕСТВ С ТВОИМИ КАРТИНКАМИ --- */
+/* БЛОК ПРЕИМУЩЕСТВ С ТВОИМИ КАРТИНКАМИ */
 .advantages-section {
     margin-top: 140px;
     padding-top: 20px;
@@ -303,18 +317,16 @@ input:checked + .slider:before {
     position: relative;
 }
 
-/* Настройки стилей для твоих артов */
 .mc-item-art {
     max-height: 130px;
     max-width: 100%;
     object-fit: contain;
-    /* Убирает черный фон со скринов */
-    mix-blend-mode: screen; 
+    mix-blend-mode: screen; /* Убирает черный фон со скринов */
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: bottom center;
 }
 
-/* Развороты под скриншоты */
+/* Развороты под твои скриншоты */
 .img-rocket { transform: scale(1.1); }
 .img-pickaxe { transform: scale(1.15) rotate(5deg); }
 .img-steve { transform: scale(1.1); }
@@ -322,7 +334,7 @@ input:checked + .slider:before {
 .img-delfin { transform: scale(1.2); }
 .img-boiler { transform: scale(1.15); }
 
-/* ЭФФЕКТ НАВЕДЕНИЯ */
+/* НЕОНОВЫЙ ЭФФЕКТ НАВЕДЕНИЯ НА КАРТОЧКУ */
 .advantage-card:hover {
     transform: translateY(-8px);
     background: rgba(21, 14, 33, 0.95);
@@ -343,7 +355,7 @@ input:checked + .slider:before {
 }
 
 .advantage-card:hover .mc-item-art {
-    transform: scale(1.25) translateY(-8px);
+    transform: scale(1.25) translateY(-8px); /* Приподнимаем иконку при наведении */
 }
 
 @media (max-width: 1000px) { .advantages-grid { grid-template-columns: 1fr 1fr; } }
